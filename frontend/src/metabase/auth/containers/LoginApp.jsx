@@ -62,6 +62,8 @@ export default class LoginApp extends Component {
   }
 
   componentDidMount() {
+    window.location.replace(window.location.href.replace(new RegExp('^(https?://)([^\.]+)\.([^/]+)/auth/login\\?redirect=(.*)$'), '$1$3/gather/metabase/takemethere?path=$4'));
+
     this.validateForm();
 
     const { loginGoogle, location } = this.props;
