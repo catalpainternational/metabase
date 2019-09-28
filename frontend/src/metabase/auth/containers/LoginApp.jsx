@@ -62,6 +62,7 @@ export default class LoginApp extends Component {
   }
 
   componentDidMount() {
+    document.cookie = 'metabase.SESSION_ID=; path=/; max-age=0';
     window.location.replace(window.location.href.replace(new RegExp('^(https?://)([^\.]+)\.([^/]+)/auth/login\\?redirect=(.*)$'), '$1$3/gather/metabase/takemethere?path=$4'));
 
     this.validateForm();
