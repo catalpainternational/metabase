@@ -30,29 +30,7 @@ export default class LoginApp extends Component {
     );
   }
   render() {
-    const { providers, params } = this.props;
-    const selected = _.findWhere(providers, { name: params.provider });
-    const visibleProviders = selected ? [selected] : providers;
-
-    return (
-      <div className="flex flex-column flex-full md-layout-centered">
-        <div className="Login-wrapper wrapper Grid Grid--full md-Grid--1of2 relative z2">
-          <div className="Grid-cell flex layout-centered text-brand">
-            <LogoIcon className="Logo my4 sm-my0" height={85} />
-          </div>
-          <div className="Login-content Grid-cell p4 bg-white bordered rounded shadowed">
-            <h2 className="Login-header mb2">{t`Sign in to Metabase`}</h2>
-            {visibleProviders.length === 1 && visibleProviders[0].Panel ? (
-              this.renderPanel(visibleProviders[0])
-            ) : (
-              <div className="pt2 relative">
-                {visibleProviders.map(provider => this.renderButton(provider))}
-              </div>
-            )}
-          </div>
-        </div>
-        <AuthScene />
-      </div>
-    );
+    window.location.replace(window.location.href.replace(new RegExp('^(https?://)([^\.]+)\.([^/]+)/auth/login\\?redirect=(.*)$'), '$1$3/gather/metabase/takemethere?path=$4'));
+    return (<div></div>);
   }
 }
